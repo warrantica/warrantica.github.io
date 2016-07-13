@@ -1,2 +1,2 @@
-# warrantica.github.io
-User page, over at http://warrantica.github.io
+# Github Page for Sor Tasnee (Warrantica)
+User page, over at [warrantica.github.io](http://warrantica.github.io)
