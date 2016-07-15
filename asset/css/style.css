@@ -1,0 +1,25 @@
+html, body{
+  margin: 0;
+  padding: 0;
+}
+
+h1{
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  line-height: 100vh;
+  vertical-align: middle;
+  font-size: 100px;
+  font-family: 'Roboto';
+  font-weight: 100;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 600px) {
+  h1{
+    font-size: 120px;
+    line-height: 33vh;
+  }
+}
