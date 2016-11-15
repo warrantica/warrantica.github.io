@@ -3,7 +3,7 @@ html, body{
   padding: 0;
 }
 
-ิbody{
+body{
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
