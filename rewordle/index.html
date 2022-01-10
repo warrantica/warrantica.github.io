@@ -11,13 +11,16 @@
 	<title>Rewordle</title>
 </head>
 <body>
+	<div class="topBar">
+		<button class="resetButton">Reset</button>
+	</div>
 	<div class="content">
 		<div class="row">
-			<div class="letter l-wrong">p</div>
-			<div class="letter l-semi">i</div>
-			<div class="letter l-right">l</div>
-			<div class="letter">o</div>
-			<div class="letter">t</div>
+			<div class="letter"></div>
+			<div class="letter"></div>
+			<div class="letter"></div>
+			<div class="letter"></div>
+			<div class="letter"></div>
 		</div>
 		<div class="row">
 			<div class="letter"></div>
@@ -55,9 +58,9 @@
 			<div class="letter"></div>
 		</div>
 	</div>
-	<div class="input">
-		<input type="text">
-		<button>Submit</button>
+	<div class="bottomBar">
+		<input type="text" class="input" disabled>
+		<button class="button">Go!</button>
 	</div>
 
 	<script src="main.js"></script>
