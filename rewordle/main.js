@@ -25,9 +25,9 @@ input.addEventListener('input', event => {
 	});
 });
 
-button.addEventListener('mouseup', check);
-document.addEventListener('keyup', event => {
-	if(event.code === 'Enter') check();
+document.querySelector('.button').addEventListener('click', e => {
+	e.preventDefault();
+	check();
 });
 
 document.querySelector('.resetButton').addEventListener('mouseup', resetGame);
