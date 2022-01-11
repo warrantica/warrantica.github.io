@@ -33,6 +33,13 @@ document.addEventListener('keyup', event => {
 document.querySelector('.resetButton').addEventListener('mouseup', resetGame);
 document.querySelector('.message').addEventListener('mouseup', resetGame);
 
+document.querySelector('.aboutButton').addEventListener('mouseup', e => {
+	document.querySelector('.aboutContainer').classList.add('active');
+});
+document.querySelector('.closeButton').addEventListener('mouseup', e => {
+	document.querySelector('.aboutContainer').classList.remove('active');
+});
+
 function resetGame(){
 	attempt = 0;
 	input.value = '';

@@ -8,7 +8,7 @@
 	--green: seagreen;
 
 	--bg-color: var(--grey-1);
-	--cell-size: 60px;
+	--cell-size: 50px;
 }
 
 body{
@@ -23,19 +23,60 @@ body{
 	flex-direction: row;
 	justify-content: right;
 	align-items: center;
-	padding: 0 20px;
+	margin-bottom: 10px;
 }
 
-.resetButton{
+.topBar button{
 	background-color: var(--grey-2);
 	border: none;
-	font-size: 16pt;
-	padding: 0 20px;
-	height: 50px;
+	font-size: 11pt;
+	padding: 5px 16px;
+	margin-right: 10px;
 	box-sizing: border-box;
 	border-radius: 25px;
 	color: white;
 	font-family: 'Poppins';
+}
+
+.aboutContainer{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	position: absolute;
+	top: -100vh;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: var(--bg-color);
+	z-index: 2;
+	opacity: 0.8;
+	transition: all .3s ease;
+}
+
+.aboutContainer.active{
+	top: 0;
+}
+
+.closeButton{
+	background-color: var(--grey-2);
+	border: none;
+	font-size: 11pt;
+	padding: 5px 16px;
+	box-sizing: border-box;
+	border-radius: 25px;
+	color: white;
+	font-family: 'Poppins';
+	margin: 20px 0;
+}
+
+.about{
+	max-width: 400px;
+	line-height: 1.5;
+}
+
+.about a, .about a:visited{
+	color: var(--green);
 }
 
 .content{
@@ -61,7 +102,7 @@ body{
 	border-radius: 50%;
 	border: var(--grey-2) 3px solid;
 	background-color: none;
-	margin: 6px;
+	margin: 4px;
 	text-transform: uppercase;
 	transition: all .3s ease;
 }
@@ -109,11 +150,11 @@ body{
 	justify-content: center;
 	align-items: center;
 	width: 320px;
-	height: 50px;
-	border-radius: 25px;
+	height: 40px;
+	border-radius: 20px;
 	background-color: var(--green);
 	text-align: center;
-	font-size: 12pt;
+	font-size: 10pt;
 	transform: scale(0);
 	transition: all .3s ease;
 }
@@ -129,12 +170,12 @@ body{
 .input{
 	background-color: var(--grey-2);
 	border: none;
-	font-size: 16pt;
+	font-size: 14pt;
 	padding: 0 25px;
 	max-width: 250px;
-	height: 50px;
+	height: 40px;
 	box-sizing: border-box;
-	border-radius: 25px 0 0 25px;
+	border-radius: 20px 0 0 20px;
 	color: white;
 	font-family: 'Poppins';
 	text-transform: uppercase;
@@ -149,11 +190,11 @@ body{
 .button{
 	background-color: var(--green);
 	border: none;
-	font-size: 16pt;
+	font-size: 14pt;
 	padding: 0 20px 0 15px;
-	height: 50px;
+	height: 40px;
 	box-sizing: border-box;
-	border-radius: 0 25px 25px 0;
+	border-radius: 0 20px 20px 0;
 	color: white;
 	font-family: 'Poppins';
 }
