@@ -31,10 +31,15 @@ document.addEventListener('keyup', event => {
 });
 
 document.querySelector('.resetButton').addEventListener('mouseup', resetGame);
+document.querySelector('.message').addEventListener('mouseup', resetGame);
 
 function resetGame(){
 	attempt = 0;
 	input.value = '';
+	document.querySelector('.message').className = 'message';
+	setTimeout(() => {
+		document.querySelector('.messageContainer').classList.remove('active');
+	}, 300);
 	let allLetters = document.querySelectorAll('.letter');
 	allLetters.forEach(item => {
 		item.innerHTML = '';
@@ -111,9 +116,20 @@ function checkLetter(hint, element){
 }
 
 function winGame(){
-	//TODO
+	let message = document.querySelector('.message');
+	message.className = 'message';
+	message.innerHTML = "Nice!! 🎉🎉🎉<br>Click to restart";
+	document.querySelector('.messageContainer').classList.add('active');
+	message.classList.add('active');
 }
 
 function loseGame(){
-	//TODO
+	let message = document.querySelector('.message');
+	message.className = 'message';
+	message.innerHTML = "The answer was "
+		+ word.toUpperCase()
+		+ "!<br>Click to restart";
+	document.querySelector('.messageContainer').classList.add('active');
+	message.classList.add('lost');
+	message.classList.add('active');
 }
