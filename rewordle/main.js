@@ -1,8 +1,13 @@
+//TODO:
+// notifications for invalid words
+// shortcut for starting a new game?
+
 let txtSource = 'words.txt';
 let words = [];
 let word = '';
 let attempt = 0;
-let gameInProgress = false;
+let validWordsSource = 'validwords.txt';
+let validWords = [];
 
 let rows = document.querySelectorAll('.row');
 let input = document.querySelector('.input');
@@ -10,7 +15,11 @@ let button = document.querySelector('.button');
 
 fetch(txtSource).then(txt => txt.text()).then(data => {
 	words = data.split('\n');
-	initGame();
+}).then(() => {
+	fetch(validWordsSource).then(txt => txt.text()).then(data => {
+		validWords = data.split('\n');
+		initGame();
+	});
 });
 
 input.addEventListener('input', event => {
@@ -58,15 +67,12 @@ function resetGame(){
 
 function initGame(){
 	word = getRandomWord();
-	gameInProgress = true;
-	input.disabled = false;
 	input.focus();
-	console.log(word);
 }
 
 function getRandomWord(){
 	let randomNumber = Math.floor(Math.random() * words.length);
-	return words[randomNumber];
+	return words[randomNumber].toLowerCase();
 }
 
 function check(){
@@ -74,7 +80,11 @@ function check(){
 		console.log('Invalid input');
 		return;
 	}
-	//TODO: add check for valid words (dictionary API????)
+
+	if(validWords.indexOf(input.value) === -1){
+		console.log('Not a valid word');
+		return;
+	}
 
 	input.value = input.value.toLowerCase();
 	let answers = input.value.split('');
