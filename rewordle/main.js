@@ -1,12 +1,10 @@
-//TODO:
-// shortcut for starting a new game?
-
 let txtSource = 'words.txt';
 let words = [];
 let word = '';
 let attempt = 0;
 let validWordsSource = 'validwords.txt';
 let validWords = [];
+let restartEnabled = false;
 
 let rows = document.querySelectorAll('.row');
 let input = document.querySelector('.input');
@@ -40,17 +38,20 @@ document.querySelector('.button').addEventListener('click', e => {
 
 document.querySelector('.resetButton').addEventListener('mouseup', resetGame);
 document.querySelector('.message').addEventListener('mouseup', resetGame);
-
 document.querySelector('.aboutButton').addEventListener('mouseup', e => {
 	document.querySelector('.aboutContainer').classList.add('active');
 });
 document.querySelector('.closeButton').addEventListener('mouseup', e => {
 	document.querySelector('.aboutContainer').classList.remove('active');
 });
+document.addEventListener('keyup', e => {
+	if(restartEnabled && e.code === 'Space') resetGame();
+});
 
 function resetGame(){
 	attempt = 0;
 	input.value = '';
+	restartEnabled = false;
 	document.querySelector('.message').className = 'message';
 	setTimeout(() => {
 		document.querySelector('.messageContainer').classList.remove('active');
@@ -81,7 +82,7 @@ function check(){
 	}
 
 	if(validWords.indexOf(input.value) === -1){
-		showError("'" + input.value.toUpperCase() + "' is not in the word list.");
+		showError(input.value.toUpperCase() + " is not in the word list.");
 		return;
 	}
 
@@ -143,7 +144,8 @@ function showError(message){
 function winGame(){
 	let message = document.querySelector('.message');
 	message.className = 'message';
-	message.innerHTML = "Nice!! 🎉🎉🎉<br>Click to restart";
+	message.innerHTML = "Nice!! 🎉🎉🎉<br>Tap here or press space to restart";
+	restartEnabled = true;
 	document.querySelector('.messageContainer').classList.add('active');
 	message.classList.add('active');
 }
@@ -153,7 +155,8 @@ function loseGame(){
 	message.className = 'message';
 	message.innerHTML = "The answer was "
 		+ word.toUpperCase()
-		+ "!<br>Click to restart";
+		+ "!<br>Tap here or press space to restart";
+	restartEnabled = true;
 	document.querySelector('.messageContainer').classList.add('active');
 	message.classList.add('lost');
 	message.classList.add('active');
