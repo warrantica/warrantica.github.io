@@ -28,7 +28,7 @@ body{
 .topBar button{
 	background-color: var(--grey-2);
 	border: none;
-	font-size: 11pt;
+	font-size: 10pt;
 	padding: 5px 16px;
 	margin-right: 10px;
 	box-sizing: border-box;
@@ -163,6 +163,28 @@ body{
 
 .message.active{
 	transform: scale(1);
+}
+
+.errorContainer{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	position: absolute; top: 40px; left: 0;
+	transform: translateY(-120px);
+	transition: all .3s ease;
+}
+
+.errorContainer.active{
+	transform: translateY(0px);
+}
+
+.error{
+	padding: 8px 20px;
+	background-color: var(--red);
+	border-radius: 25px;
+	font-size: 14pt;
 }
 
 .input{

@@ -1,5 +1,4 @@
 //TODO:
-// notifications for invalid words
 // shortcut for starting a new game?
 
 let txtSource = 'words.txt';
@@ -77,12 +76,12 @@ function getRandomWord(){
 
 function check(){
 	if(input.value.length !== 5){
-		console.log('Invalid input');
+		showError("Guess needs to be a 5 letter word.");
 		return;
 	}
 
 	if(validWords.indexOf(input.value) === -1){
-		console.log('Not a valid word');
+		showError("'" + input.value.toUpperCase() + "' is not in the word list.");
 		return;
 	}
 
@@ -130,6 +129,15 @@ function checkLetter(hint, element){
 		case 1: element.classList.add('l-semi'); break;
 		case 2: element.classList.add('l-right'); break;
 	}
+}
+
+function showError(message){
+	document.querySelector('.error').innerHTML = message;
+	let errorContainer = document.querySelector('.errorContainer');
+	errorContainer.classList.add('active');
+	setTimeout(() => {
+		errorContainer.classList.remove('active');
+	}, 3000);
 }
 
 function winGame(){
