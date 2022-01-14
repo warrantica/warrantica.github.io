@@ -13,7 +13,7 @@
 body{
 	background-color: var(--bg-color);
 	color: white;
-	font-size: 16pt;
+	font-size: 12pt;
 	font-family: 'Poppins', sans-serif;
 }
 
@@ -59,7 +59,7 @@ body{
 .closeButton{
 	background-color: var(--grey-2);
 	border: none;
-	font-size: 11pt;
+	font-size: 10pt;
 	padding: 5px 16px;
 	box-sizing: border-box;
 	border-radius: 25px;
@@ -90,12 +90,13 @@ body{
 }
 
 .letter{
-	display: flex;
+	display: inline-flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	width: var(--cell-size);
 	height: var(--cell-size);
+	font-size: 16pt;
 	box-sizing: border-box;
 	border-radius: 50%;
 	border: var(--grey-2) 3px solid;
