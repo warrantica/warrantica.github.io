@@ -56,7 +56,7 @@ function resetGame(){
 	setTimeout(() => {
 		document.querySelector('.messageContainer').classList.remove('active');
 	}, 300);
-	let allLetters = document.querySelectorAll('.letter');
+	let allLetters = document.querySelectorAll('.content .letter');
 	allLetters.forEach(item => {
 		item.innerHTML = '';
 		item.className = 'letter';
